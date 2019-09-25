@@ -10,6 +10,7 @@
         <module>zt-gateway</module>
         <module>zt-domain</module>
         <module>zt-web</module>
+        <module>zt-mybatis-plus</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
