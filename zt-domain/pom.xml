@@ -11,5 +11,12 @@
 
     <artifactId>zt-domain</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zeti</groupId>
+            <artifactId>zt-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

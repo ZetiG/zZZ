@@ -7,7 +7,6 @@
         <groupId>com.zeti</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.zeti</groupId>
     <artifactId>zt-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>zt-web</name>
@@ -19,14 +18,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.zeti</groupId>
+            <artifactId>zt-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

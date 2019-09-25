@@ -11,5 +11,12 @@
 
     <artifactId>zt-service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zeti</groupId>
+            <artifactId>zt-dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
