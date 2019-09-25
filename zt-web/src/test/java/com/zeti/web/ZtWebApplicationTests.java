@@ -1,4 +1,4 @@
-package com.zeti.ztweb;
+package com.zeti.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -7,9 +7,9 @@
         <module>zt-common</module>
         <module>zt-dao</module>
         <module>zt-service</module>
-        <module>zt-web</module>
         <module>zt-gateway</module>
         <module>zt-domain</module>
+        <module>zt-web</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
