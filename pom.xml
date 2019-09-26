@@ -110,6 +110,24 @@
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+            <!--引入ui包-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>1.9.6</version>
+            </dependency>
+<!--
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
+                </exclusions>
                 <version>${swagger.version}</version>
             </dependency>
             <dependency>
@@ -117,6 +135,7 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger-ui.version}</version>
             </dependency>
+-->
         </dependencies>
     </dependencyManagement>
 
@@ -164,16 +183,17 @@
     <!--仓库-->
     <repositories>
         <!--阿里仓库-->
-        <repository>
-            <id>public</id>
-            <name>aliyun nexus</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <!--自定义仓库-->
-
+            <repository>
+                <id>alimaven</id>
+                <name>Maven Aliyun Mirror</name>
+                <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>false</enabled>
+                </snapshots>
+            </repository>
     </repositories>
     <!--插件仓库-->
     <pluginRepositories>
