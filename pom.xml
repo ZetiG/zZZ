@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    <groupId>com.zeti</groupId>
+
+    <groupId>com.zt.zZZ</groupId>
     <artifactId>zzz</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>zzz</name>
-    <description>Demo project for Spring Boot</description>
-
     <packaging>pom</packaging>
-
+    <version>1.0-SNAPSHOT</version>
     <modules>
         <module>zt-common</module>
+        <module>zt-domain</module>
         <module>zt-dao</module>
         <module>zt-service</module>
         <module>zt-gateway</module>
-        <module>zt-domain</module>
-        <module>zt-web</module>
         <module>zt-mybatis-plus</module>
+        <module>zt-web</module>
     </modules>
 
     <properties>
@@ -35,48 +27,60 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- 编译时的编码 -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <!--依赖版本管理-->
-        <lombok.version>1.18.10</lombok.version>
-        <fastjson.version>1.2.60</fastjson.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
-        <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
-        <mybatis-spring-boot>2.0.0</mybatis-spring-boot>
-        <spring-boot-web>2.1.6.RELEASE</spring-boot-web>
+        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <spring.platform.version>Cairo-SR8</spring.platform.version>
+        <mybatis.starter.version>2.0.0</mybatis.starter.version>
+        <lombok.version>1.18.6</lombok.version>
         <swagger.version>2.9.2</swagger.version>
-        <swagger-ui.version>2.9.2</swagger-ui.version>
-
+        <springfox-ui.version>2.9.2</springfox-ui.version>
+        <swagger.models.version>1.5.21</swagger.models.version>
+        <swagger.bootstrapui.version>1.9.0</swagger.bootstrapui.version>
+        <fastjson.verson>1.2.47</fastjson.verson>
+        <java.version>1.8</java.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <mybatis.plus.version>3.1.0</mybatis.plus.version>
+        <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
+        <mybatis-plus.version>3.1.0</mybatis-plus.version>
     </properties>
 
+    <!---公共依赖-->
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--监控-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
+            <version>${fastjson.verson}</version>
         </dependency>
+
     </dependencies>
 
+    <!--依赖-->
     <dependencyManagement>
         <dependencies>
+            <!--spring-cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -84,6 +88,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--spring-boot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -91,123 +96,43 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--数据库-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot}</version>
+                <version>${mybatis.starter.version}</version>
             </dependency>
+            <!--数据校验-->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot-web}</version>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
             </dependency>
+            <!--Lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-            <!--文档-->
+            <!--微服务文档-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
-                <version>2.9.2</version>
-            </dependency>
-            <!--引入ui包-->
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>swagger-bootstrap-ui</artifactId>
-                <version>1.9.6</version>
-            </dependency>
-<!--
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <exclusions>
-                    <exclusion>
-                        <groupId>io.swagger</groupId>
-                        <artifactId>swagger-models</artifactId>
-                    </exclusion>
-                </exclusions>
                 <version>${swagger.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
-                <version>${swagger-ui.version}</version>
+                <version>${springfox-ui.version}</version>
             </dependency>
--->
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <!--构建-->
-    <build>
-        <finalName>${project.name}</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
-    <!--仓库-->
-    <repositories>
-        <!--阿里仓库-->
-            <repository>
-                <id>alimaven</id>
-                <name>Maven Aliyun Mirror</name>
-                <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
-                <releases>
-                    <enabled>true</enabled>
-                </releases>
-                <snapshots>
-                    <enabled>false</enabled>
-                </snapshots>
-            </repository>
-    </repositories>
-    <!--插件仓库-->
-    <pluginRepositories>
-        <pluginRepository>
-            <id>public</id>
-            <name>aliyun nexus</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 
 </project>
