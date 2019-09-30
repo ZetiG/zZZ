@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zt.dao.mapper.ReportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="reportResultMap" type="com.zt.domain.entity.Report">
+        <id column="id" property="id"/>
+        <result column="shop_name" property="shopName"/>
+        <result column="shop_phone" property="shopPhone"/>
+        <result column="report_type" property="reportType"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="report_time" property="reportTime"/>
+        <result column="status" property="status"/>
+        <result column="reported_store" property="reportedStore"/>
+        <result column="reported_store_address" property="reportedStoreAddress"/>
+        <result column="reported_platform" property="reportedPlatform"/>
+        <result column="reported_account" property="reportedAccount"/>
+        <result column="source_picture" property="sourcePicture"/>
+        <result column="show_picture" property="showPicture"/>
+        <result column="buy_picture" property="buyPicture"/>
+        <result column="commit" property="commit"/>
+        <result column="remark" property="remark"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="baseColumnList">
+    id, shop_name, shop_phone, report_type, goods_name, goods_price, report_time, status, reported_store,
+    reported_store_address, reported_platform, reported_account, source_picture, show_picture, buy_picture,
+    commit, remark, create_user, update_user, create_time, update_time, is_deleted
+    </sql>
+
+    <select id="selectReportPage" resultMap="reportResultMap">
+        select * from cms_report where is_deleted = 0
+    </select>
+
+    <select id="selectId" resultType="com.zt.domain.entity.Report">
+        select * from cms_report where id = #{id}
+    </select>
+
+</mapper>

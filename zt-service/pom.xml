@@ -12,5 +12,12 @@
     <groupId>com.zt.service</groupId>
     <artifactId>zt-service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zt.dao</groupId>
+            <artifactId>zt-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

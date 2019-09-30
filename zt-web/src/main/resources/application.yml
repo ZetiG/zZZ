@@ -1,2 +1,10 @@
 server:
   port: 8080
+
+#数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.249:3306/mall_new5?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 1234567

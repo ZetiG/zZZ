@@ -33,7 +33,7 @@ public class CodeGenerator {
     /**
      * 代码生成的包名
      */
-    private static String packageName = "com.mybatis.plus";
+    private static String packageName = "com.zt.mybatis";
     /**
      * 代码后端生成的地址
      */
@@ -65,9 +65,9 @@ public class CodeGenerator {
      */
     private static Boolean isSwagger2 = Boolean.TRUE;
 
-    public static void main(String[] args) {
-        run();
-    }
+//    public static void main(String[] args) {
+//        run();
+//    }
 
     public static void run() {
         Properties properties = getProperties();
