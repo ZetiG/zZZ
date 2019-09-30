@@ -25,3 +25,10 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     #配置的缓存的全局开关
     cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#配置日志地址
+logging:
+  level:
+    com.zt.dao.mapper: debug
+  config: classpath:log/logback_dev.xml
