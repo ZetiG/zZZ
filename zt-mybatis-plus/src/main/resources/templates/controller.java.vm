@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestParam;
 #end
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import $!{package.Entity}.$!{entity};
 #set($voPackage=$package.Entity.replace("entity","vo"))
 import $!{voPackage}.$!{entity}VO;
@@ -55,13 +56,12 @@ public class $!{table.controllerName} {
 
 
 	/**
-	* 自定义分页 $!{table.comment}
+	* 分页查询 $!{table.comment}
 	*/
 	@GetMapping("/page")
 	@ApiOperation(value = "分页", notes = "传入$!{table.entityPath}")
-	public R<IPage<$!{entity}VO>> page($!{entity}VO $!{table.entityPath}, Query query) {
-		IPage<$!{entity}VO> pages = $!{table.entityPath}Service.select$!{entity}Page(Condition.getPage(query), $!{table.entityPath});
-		return R.success(pages);
+	public IPage<$!{entity}VO> page(Page page, $!{entity}VO $!{table.entityPath}) {
+		return $!{table.entityPath}Service.select$!{entity}Page(page, $!{table.entityPath});
 	}
 
 	/**

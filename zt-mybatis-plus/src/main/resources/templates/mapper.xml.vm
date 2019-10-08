@@ -29,7 +29,6 @@
 #if($!{baseColumnList})
     <!-- 通用查询结果列 -->
     <sql id="baseColumnList">
-        select
     #foreach($field in $!{table.commonFields})
     #if($!{field.name} == $!{field.propertyName})$!{field.name}#else$!{field.name} AS $!{field.propertyName}#end,
     #end
@@ -37,7 +36,7 @@
     </sql>
 
     <select id="select$!{entity}Page" resultMap="$!{table.entityPath}ResultMap">
-        select * from $!{table.name} where is_deleted = 0
+        select <include refid="$!{baseColumnList}"/> from $!{table.name} where is_deleted = 0
     </select>
 
 #end

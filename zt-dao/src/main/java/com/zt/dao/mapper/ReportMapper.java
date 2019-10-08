@@ -3,13 +3,8 @@ package com.zt.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zt.domain.entity.Report;
 import com.zt.domain.vo.ReportVO;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultType;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -24,13 +19,12 @@ import org.springframework.stereotype.Repository;
 public interface ReportMapper extends BaseMapper<Report> {
 
     /**
-     * 自定义分页
+     * 分页
      *
      * @param page
      * @param report
      * @return
      */
-    IPage<ReportVO> selectReportPage(Page page, ReportVO report);
+    IPage<ReportVO> selectReportPage(IPage page, ReportVO report);
 
-    Report selectId(Integer id);
 }

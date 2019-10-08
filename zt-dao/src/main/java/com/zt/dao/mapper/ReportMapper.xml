@@ -36,11 +36,7 @@
     </sql>
 
     <select id="selectReportPage" resultMap="reportResultMap">
-        select * from cms_report where is_deleted = 0
-    </select>
-
-    <select id="selectId" resultType="com.zt.domain.entity.Report">
-        select <include refid="baseColumnList"/> from cms_report where id = #{id}
+        select <include refid="baseColumnList"/> from cms_report where is_deleted = 0
     </select>
 
 </mapper>

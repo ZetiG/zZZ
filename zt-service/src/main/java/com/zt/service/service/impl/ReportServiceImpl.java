@@ -2,7 +2,6 @@
 package com.zt.service.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mybatis.plus.base.BaseServiceImpl;
 import com.zt.dao.mapper.ReportMapper;
 import com.zt.domain.entity.Report;
@@ -22,7 +21,7 @@ import org.springframework.stereotype.Service;
 public class ReportServiceImpl extends BaseServiceImpl<ReportMapper, Report> implements IReportService {
 
     @Override
-    public IPage<ReportVO> selectReportPage(Page<ReportVO> page, ReportVO report) {
+    public IPage<ReportVO> selectReportPage(IPage<ReportVO> page, ReportVO report) {
         return baseMapper.selectReportPage(page, report);
     }
 
@@ -31,9 +30,5 @@ public class ReportServiceImpl extends BaseServiceImpl<ReportMapper, Report> imp
         return baseMapper.selectById(id);
     }
 
-    @Override
-    public Report selectId(Integer id) {
-        return baseMapper.selectId(id);
-    }
 
 }

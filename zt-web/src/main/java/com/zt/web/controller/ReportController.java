@@ -10,9 +10,6 @@ import com.zt.service.service.IReportService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -35,26 +32,21 @@ public class ReportController extends BaseController {
     private IReportService reportService;
 
     /**
-     * 自定义分页
+     * 分页
      */
     @GetMapping("/page")
     @ApiOperation(value = "分页", notes = "传入report")
     public IPage<ReportVO> page(Page page, ReportVO report) {
-        IPage<ReportVO> pages = reportService.selectReportPage(page, report);
-        return pages;
+        return reportService.selectReportPage(page, report);
     }
 
-
+    /**
+     * 查询单条
+     */
     @GetMapping("/{id}")
     @ApiOperation(value = "分页", notes = "传入report")
     public Report selectById(@PathVariable Integer id) {
         return reportService.selectById(id);
-    }
-
-    @GetMapping("/test/{id}")
-    @ApiOperation(value = "分页", notes = "传入report")
-    public Report selectId(@PathVariable Integer id) {
-        return reportService.selectId(id);
     }
 
     /**
