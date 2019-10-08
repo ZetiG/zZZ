@@ -25,7 +25,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/report")
-@Api(value = "", tags = "接口")
+@Api(value = "测试接口", tags = "测试")
 public class ReportController extends BaseController {
 
     @Resource
