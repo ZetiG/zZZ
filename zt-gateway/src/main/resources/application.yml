@@ -1,0 +1,11 @@
+server:
+  port: 8000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: route
+          uri: http://ityouknow.com
+          predicates:
+          - Path=/report

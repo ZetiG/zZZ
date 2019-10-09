@@ -12,5 +12,12 @@
     <groupId>com.zt.gateway</groupId>
     <artifactId>zt-gateway</artifactId>
 
+    <dependencies>
+        <!--gateway-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
