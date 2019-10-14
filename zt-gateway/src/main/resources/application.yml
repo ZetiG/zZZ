@@ -4,8 +4,12 @@ server:
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
-        - id: route
-          uri: http://ityouknow.com
+        - id: zt-web
+          uri: http://www.s98k.com
           predicates:
-          - Path=/report
+          - Path=/report/**

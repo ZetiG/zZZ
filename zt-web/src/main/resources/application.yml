@@ -17,3 +17,8 @@ spring:
 logging:
   level:
     com.zt.dao.mapper: debug
+
+#关闭banner
+mybatis-plus:
+  global-config:
+    banner: false
