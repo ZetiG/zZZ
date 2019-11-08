@@ -24,11 +24,12 @@
             <artifactId>zt-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!--webMVC-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <!--junit-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
