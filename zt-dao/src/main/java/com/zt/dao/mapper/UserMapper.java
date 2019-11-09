@@ -1,11 +1,10 @@
-
 package com.zt.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zt.domain.entity.Report;
-import com.zt.domain.vo.ReportVO;
+import com.zt.domain.entity.UserEntity;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 包名   com.mybatis.plus.mapper
@@ -16,15 +15,13 @@ import org.springframework.stereotype.Repository;
  * @author
  */
 @Repository
-public interface ReportMapper extends BaseMapper<Report> {
+public interface UserMapper extends BaseMapper<UserEntity> {
 
     /**
-     * 分页
+     * 查询所有
      *
-     * @param page
-     * @param report
      * @return
      */
-    IPage<ReportVO> selectReportPage(IPage page, ReportVO report);
+    List<UserEntity> selectList();
 
 }

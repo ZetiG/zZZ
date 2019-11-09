@@ -1,8 +1,12 @@
 package com.zt.web.controller;
 
 import com.zt.domain.entity.UserEntity;
+import com.zt.service.api.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Description: (用一句话描述该文件做什么)
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class TestController {
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/test")
     public String test() {
@@ -38,5 +45,10 @@ public class TestController {
         return "index.html";
     }
 
+
+    @GetMapping("/list")
+    public List<UserEntity> selectList() {
+        return userService.selectList();
+    }
 
 }

@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  * @Author Zeti
  */
 @Data
-@TableName("cms_report")
+@TableName("z_user")
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "Report对象", description = "Report对象")
 public class UserEntity extends BaseEntity {
