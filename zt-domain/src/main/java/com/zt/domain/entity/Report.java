@@ -9,6 +9,7 @@ import com.mybatis.plus.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName("cms_report")
+@EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "Report对象", description = "Report对象")
 public class Report extends BaseEntity {
 
