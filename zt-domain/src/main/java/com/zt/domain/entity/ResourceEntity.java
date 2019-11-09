@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 包名       com.zt.mybatis.entity
- * 文件名:    UserEntity
+ * 文件名:    ResourceEntity
  * 创建时间:  2019-11-09
  * 描述:      实体类
  *
@@ -16,16 +16,20 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("z_user")
-@ApiModel(value = "User对象", description = "User对象")
-public class UserEntity extends BaseEntity {
+@TableName("z_resource")
+@ApiModel(value = "Resource对象", description = "Resource对象")
+public class ResourceEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
 
-    private String username;
+    private Integer parentId;
 
-    private String password;
+    private String resourceName;
+
+    private String request;
+
+    private String path;
 
 
 }

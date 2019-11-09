@@ -1,4 +1,3 @@
-
 #set($wrapperPackage=$package.Entity.replace("entity","wrapper"))
 package $!{wrapperPackage};
 

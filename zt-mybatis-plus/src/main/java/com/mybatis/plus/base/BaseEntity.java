@@ -19,6 +19,9 @@ import java.time.LocalDateTime;
  */
 @Data
 public class BaseEntity implements Serializable {
+
+    private static final long serialVersionUID = -2613173167562997755L;
+
     /**
      * 主键id
      */
@@ -29,27 +32,31 @@ public class BaseEntity implements Serializable {
     /**
      * 创建人
      */
-    @ApiModelProperty(value = "创建人")
-    private String createUser;
+//    @ApiModelProperty(value = "创建人")
+//    private String createUser;
+
     /**
      * 更新人
      */
-    @ApiModelProperty(value = "更新人")
-    private String updateUser;
+//    @ApiModelProperty(value = "更新人")
+//    private String updateUser;
+
     /**
      * 创建时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @ApiModelProperty(value = "创建时间")
+//    private LocalDateTime createTime;
+
     /**
      * 更新时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updateTime;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @ApiModelProperty(value = "更新时间")
+//    private LocalDateTime updateTime;
+
     /**
      * 状态[0:未删除,1:删除]
      */

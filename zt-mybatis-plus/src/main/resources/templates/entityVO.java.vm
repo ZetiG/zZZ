@@ -1,4 +1,3 @@
-
 #set($voPackage=$package.Entity.replace("entity","vo"))
 package $!{voPackage};
 

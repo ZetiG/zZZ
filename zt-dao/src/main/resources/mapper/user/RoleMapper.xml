@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zt.dao.mapper.user.RoleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="roleResultMap" type="com.zt.domain.entity.RoleEntity">
+        <id column="id" property="id"/>
+        <result column="role_name" property="roleName"/>
+        <result column="is_deleted" property="isDeleted"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="baseColumnList">
+    id, role_name, is_deleted
+    </sql>
+
+    <select id="selectRolePage" resultMap="roleResultMap">
+        select
+        <include refid="baseColumnList"/>
+        from z_role where is_deleted = 0
+    </select>
+
+</mapper>

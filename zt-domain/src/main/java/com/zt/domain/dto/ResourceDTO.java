@@ -1,20 +1,20 @@
 package com.zt.domain.dto;
 
-import com.zt.domain.entity.Report;
+import com.zt.domain.entity.ResourceEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 包名      com.mybatis.plus.dto
- * 文件名:   ReportDTO
- * 创建时间:  2019-09-30
+ * 包名      com.zt.mybatis.dto
+ * 文件名:   ResourceDTO
+ * 创建时间:  2019-11-09
  * 描述:      数据传输对象实体类
  *
- * @author
+ * @author Zeti
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ReportDTO extends Report {
+public class ResourceDTO extends ResourceEntity {
     private static final long serialVersionUID = 1L;
 
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zt.dao.mapper.UserMapper">
+<mapper namespace="com.zt.dao.mapper.user.UserMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="reportResultMap" type="com.zt.domain.entity.UserEntity">
+    <resultMap id="userResultMap" type="com.zt.domain.entity.UserEntity">
         <id column="id" property="id"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
@@ -15,8 +15,10 @@
     id, username, password, is_deleted
     </sql>
 
-    <select id="selectList" resultType="com.zt.domain.entity.UserEntity">
-        select <include refid="baseColumnList"/> from z_user where is_deleted=0
+    <select id="selectUserPage" resultMap="userResultMap">
+        select
+        <include refid="baseColumnList"/>
+        from z_user where is_deleted = 0
     </select>
 
 </mapper>

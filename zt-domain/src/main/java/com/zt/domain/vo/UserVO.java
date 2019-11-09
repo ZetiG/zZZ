@@ -1,23 +1,22 @@
-
 package com.zt.domain.vo;
 
-import com.zt.domain.entity.Report;
+import com.zt.domain.entity.UserEntity;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 包名    com.mybatis.plus.vo;
- * 文件名:   ReportVO
- * 创建时间:  2019-09-30
+ * 包名    com.zt.mybatis.vo;
+ * 文件名:   UserVO
+ * 创建时间:  2019-11-09
  * 描述:      视图实体类
  *
- * @author
+ * @author Zeti
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "ReportVO对象", description = "ReportVO对象")
-public class ReportVO extends Report {
+@ApiModel(value = "UserVO对象", description = "UserVO对象")
+public class UserVO extends UserEntity {
     private static final long serialVersionUID = 1L;
 
 }

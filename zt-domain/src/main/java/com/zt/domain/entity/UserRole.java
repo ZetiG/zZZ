@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 包名       com.zt.mybatis.entity
- * 文件名:    UserEntity
+ * 文件名:    UserRole
  * 创建时间:  2019-11-09
  * 描述:      实体类
  *
@@ -16,16 +16,16 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("z_user")
-@ApiModel(value = "User对象", description = "User对象")
-public class UserEntity extends BaseEntity {
+@TableName("z_user_role")
+@ApiModel(value = "UserRole对象", description = "UserRole对象")
+public class UserRole extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
 
-    private String username;
+    private Integer userId;
 
-    private String password;
+    private Integer roleId;
 
 
 }

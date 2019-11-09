@@ -81,7 +81,7 @@ public class SwaggerProperties {
         /**
          * 联系人
          **/
-        private String name = "zeti";
+        private String name = "Zeti";
 
         /**
          * 联系人url

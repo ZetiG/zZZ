@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @Author Zeti
  */
 public interface BaseService<T> extends IService<T> {
+
     /**
      * 逻辑删除
      *

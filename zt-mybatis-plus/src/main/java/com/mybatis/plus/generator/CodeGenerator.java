@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
+import com.baomidou.mybatisplus.generator.config.converts.SqliteTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import lombok.extern.slf4j.Slf4j;
@@ -42,11 +43,11 @@ public class CodeGenerator {
     /**
      * 需要去掉的表前缀
      */
-    private static String[] tablePrefix = {"cms_"};
+    private static String[] tablePrefix = {"z_"};
     /**
      * 需要生成的表名(两者只能取其一)
      */
-    private static String[] includeTables = {"cms_report"};
+    private static String[] includeTables = {"z_user", "z_role", "z_resource", "z_user_role", "z_role_resource"};
     /**
      * 需要排除的表名(两者只能取其一)
      */
@@ -65,9 +66,9 @@ public class CodeGenerator {
      */
     private static Boolean isSwagger2 = Boolean.TRUE;
 
-//    public static void main(String[] args) {
-//        run();
-//    }
+    public static void main(String[] args) {
+        run();
+    }
 
     public static void run() {
         Properties properties = getProperties();
@@ -91,8 +92,10 @@ public class CodeGenerator {
         gc.setSwagger2(isSwagger2);
         mpg.setGlobalConfig(gc);
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setDbType(DbType.MYSQL);
-        dsc.setTypeConvert(new MySqlTypeConvert());
+//        dsc.setDbType(DbType.MYSQL);
+//        dsc.setTypeConvert(new MySqlTypeConvert());
+        dsc.setDbType(DbType.SQLITE);
+        dsc.setTypeConvert(new SqliteTypeConvert());
         //指定数据库信息
         dsc.setUrl(properties.getProperty("spring.datasource.url"));
         dsc.setDriverName(properties.getProperty("spring.datasource.driver-class-name"));

@@ -43,7 +43,7 @@ public class SwaggerConfiguration {
     @Bean
     public Docket createRestApi(SwaggerProperties swaggerProperties) {
         // base-path处理
-        if (!swaggerProperties.getBasePath().isEmpty() ) {
+        if (!swaggerProperties.getBasePath().isEmpty()) {
             swaggerProperties.getBasePath().add(BASE_PATH);
         }
         //noinspection unchecked

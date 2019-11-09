@@ -17,7 +17,8 @@ spring:
   resources:
     add-mappings: false
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+#    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: org.sqlite.JDBC
     hikari:
       connection-test-query: SELECT 1 FROM DUAL
       connection-timeout: 30000
