@@ -24,4 +24,12 @@ public interface UserMapper extends BaseMapper<UserEntity> {
      */
     IPage<UserVO> selectUserPage(IPage page, UserVO user);
 
+    /**
+     * 根据用户名查询
+     *
+     * @param username
+     * @return
+     */
+    UserEntity selectByUsername(String username);
+
 }

@@ -27,5 +27,6 @@ public class UserEntity extends BaseEntity {
 
     private String password;
 
+    private String salt;
 
 }

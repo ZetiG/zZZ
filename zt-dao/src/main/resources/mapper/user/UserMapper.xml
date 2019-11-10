@@ -7,18 +7,27 @@
         <id column="id" property="id"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
+        <result column="salt" property="salt"/>
         <result column="is_deleted" property="isDeleted"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="baseColumnList">
-    id, username, password, is_deleted
+    id, username, password, salt, is_deleted
     </sql>
 
     <select id="selectUserPage" resultMap="userResultMap">
         select
         <include refid="baseColumnList"/>
         from z_user where is_deleted = 0
+    </select>
+    <select id="selectByUsername" resultMap="userResultMap">
+        select
+        <include refid="baseColumnList"/>
+        from z_user where is_deleted = 0
+        <if test="username != null and username != ''">
+            and username = #{username}
+        </if>
     </select>
 
 </mapper>

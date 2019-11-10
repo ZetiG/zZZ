@@ -2,6 +2,7 @@ package com.zt.service.api;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zt.domain.dto.UserDTO;
 import com.zt.domain.entity.UserEntity;
 import com.zt.domain.vo.UserVO;
 
@@ -24,5 +25,21 @@ public interface IUserService extends IService<UserEntity> {
      * @return
      */
     IPage<UserVO> selectUserPage(IPage<UserVO> page, UserVO user);
+
+    /**
+     * 根据用户名查询
+     *
+     * @param username
+     * @return
+     */
+    UserEntity selectByUsername(String username);
+
+    /**
+     * 新增
+     *
+     * @param userDTO
+     * @return
+     */
+    boolean add(UserDTO userDTO);
 
 }

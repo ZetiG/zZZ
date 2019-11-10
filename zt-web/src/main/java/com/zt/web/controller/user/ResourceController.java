@@ -25,7 +25,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/resource")
-@Api(value = "资源权限", tags = "接口")
+@Api(value = "/resource", tags = "资源权限接口")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class ResourceController extends BaseController {
     @Resource

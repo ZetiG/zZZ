@@ -25,7 +25,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/role-resource")
-@Api(value = "角色权限", tags = "接口")
+@Api(value = "/role-resource", tags = "角色权限接口")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class RoleResourceController extends BaseController {
     @Resource
