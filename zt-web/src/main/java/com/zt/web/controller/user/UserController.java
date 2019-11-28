@@ -103,12 +103,26 @@ public class UserController extends BaseController {
                 userForm.getPassword());
         try {
             subject.login(usernamePasswordToken);
-            log.info("======== 登录成功 =========");
+            log.info("登录成功:" + userForm.getUsername());
             return true;
         } catch (AuthenticationException exception) {
             throw new IllegalArgumentException("账号密码错误！");
         }
     }
 
+    /**
+     * 退出
+     */
+    @GetMapping("/loginOut")
+    @ApiOperation(value = "退出", notes = "无参数")
+    public boolean loginOut() {
+        try {
+            SecurityUtils.getSubject().logout();
+            return true;
+        } catch (Exception e) {
+            log.info("退出失败:" + e);
+            throw new IllegalArgumentException("退出失败, 请重试！");
+        }
+    }
 
 }

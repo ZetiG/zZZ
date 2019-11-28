@@ -20,5 +20,13 @@
         <include refid="baseColumnList"/>
         from z_user_role where is_deleted = 0
     </select>
+    <select id="selectByUserId" resultMap="userRoleResultMap">
+        select
+        <include refid="baseColumnList"/>
+        from z_user_role where is_deleted = 0
+        <if test="userId != null">
+            and user_id = #{userId}
+        </if>
+    </select>
 
 </mapper>

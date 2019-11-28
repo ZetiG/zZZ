@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zt.domain.entity.UserRole;
 import com.zt.domain.vo.UserRoleVO;
 
+import java.util.List;
+
 /**
  * 包名   com.zt.mybatis.mapper
  * 文件名:   UserRoleMapper
@@ -23,5 +25,13 @@ public interface UserRoleMapper extends BaseMapper<UserRole> {
      * @return
      */
     IPage<UserRoleVO> selectUserRolePage(IPage page, UserRoleVO userRole);
+
+    /**
+     * 根据用户id查询所有角色
+     *
+     * @param userId
+     * @return
+     */
+    List<UserRole> selectByUserId(Integer userId);
 
 }

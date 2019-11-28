@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zt.domain.entity.RoleResource;
 import com.zt.domain.vo.RoleResourceVO;
 
+import java.util.List;
+
 /**
  * 包名   com.zt.mybatis.mapper
  * 文件名:   RoleResourceMapper
@@ -23,5 +25,13 @@ public interface RoleResourceMapper extends BaseMapper<RoleResource> {
      * @return
      */
     IPage<RoleResourceVO> selectRoleResourcePage(IPage page, RoleResourceVO roleResource);
+
+    /**
+     * 根据角色id查询对应权限
+     *
+     * @param roleId
+     * @return
+     */
+    List<RoleResource> selectByRoleId(Integer roleId);
 
 }

@@ -28,7 +28,7 @@ public class CorsInterceptor implements HandlerInterceptor {
         // 如果是OPTIONS则结束请求
         if (HttpMethod.OPTIONS.toString().equals(request.getMethod())) {
             response.setStatus(HttpStatus.NO_CONTENT.value());
-            return false;
+            return true;
         }
         return true;
     }

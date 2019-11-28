@@ -2,8 +2,12 @@ package com.zt.service.api;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zt.domain.entity.ResourceEntity;
+import com.zt.domain.entity.RoleResource;
 import com.zt.domain.entity.UserRole;
 import com.zt.domain.vo.UserRoleVO;
+
+import java.util.List;
 
 /**
  * 包名   com.zt.mybatis.service
@@ -25,4 +29,11 @@ public interface IUserRoleService extends IService<UserRole> {
      */
     IPage<UserRoleVO> selectUserRolePage(IPage<UserRoleVO> page, UserRoleVO userRole);
 
+    /**
+     * 根据用户名查询拥有权限
+     *
+     * @param userId
+     * @return
+     */
+    List<ResourceEntity> selectUserResourceByName(Integer userId);
 }

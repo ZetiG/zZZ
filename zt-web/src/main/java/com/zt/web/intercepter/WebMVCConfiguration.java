@@ -22,7 +22,11 @@ public class WebMVCConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //处理option请求
-        registry.addInterceptor(corsInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(corsInterceptor)
+                .excludePathPatterns("/api/login")
+                .excludePathPatterns("/api/register")
+                .excludePathPatterns("/api/loginOut")
+                .addPathPatterns("/**");
     }
 
     @Override

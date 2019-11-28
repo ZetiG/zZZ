@@ -20,5 +20,13 @@
         <include refid="baseColumnList"/>
         from z_role_resource where is_deleted = 0
     </select>
+    <select id="selectByRoleId" resultMap="roleResourceResultMap">
+        select
+        <include refid="baseColumnList"/>
+        from z_role_resource where is_deleted = 0
+        <if test="roleId != null">
+            and role_id = #{roleId}
+        </if>
+    </select>
 
 </mapper>
