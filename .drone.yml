@@ -1,0 +1,93 @@
+kind: pipeline
+name: default
+token: docker
+# $${DRONE_COMMIT_MESSAGE%%;*} 获取版本号
+# $${DRONE_COMMIT_MESSAGE##*;} 获取项目名称
+# 代码提交的message格式为{}内的内容,不包含{}：{1.0.0;更新了一个服务;approval-web} 版本号;更新了内容;项目名称
+
+steps:
+  - name: restore-cache
+    image: drillster/drone-volume-cache
+    volumes:
+      - name: cache
+        path: /cache
+    settings:
+      restore: true
+      mount:
+        - ./.m2
+
+  - name: build
+    image: maven:3-alpine
+    commands:
+      - mvn -DskipTests clean package -Dmaven.repo.local=./.m2/repository
+
+#  - name: build
+#    image: maven:3-alpine
+#    commands:
+#      - mvn sonar:sonar -Dsonar.host.url=http://192.168.2.138:9000 -Dsonar.login=9fd235db3973939d96c009a41ff4ef211082f576 -Dmaven.repo.local=./.m2/repository
+
+
+  - name: rebuild-cache
+    image: drillster/drone-volume-cache
+    volumes:
+      - name: cache
+        path: /cache
+    settings:
+      rebuild: true
+      mount:
+        - ./.m2
+
+#   - name: push-docker-master
+#     image: plugins/docker
+#     privileged: true
+#     settings:
+#       DOCKER_PASSWORD:
+#         from_secret: DOCKER_PASSWORD
+#       DOCKER_USERNAME:
+#         from_secret: DOCKER_USERNAME
+#     volumes:
+#       - name: docker
+#         path: /var/run/docker.sock
+#     commands:
+#       - chmod a+x build_biggit.sh
+#       - ./build_biggit.sh $${DRONE_COMMIT_MESSAGE##*;} docker $${DRONE_COMMIT_MESSAGE%%;*}
+#     when:
+#       branch:
+#         - master
+#       local: false
+
+    # 部署到k8s集群
+#   - name: deploy
+#     image: registry.cn-hangzhou.aliyuncs.com/lm93129/drone-k8s-update
+#     settings:
+#       kubernetes_server: https://rancher.asoco.com.cn/k8s/clusters/c-hm5vw
+#       kubernetes_token:
+#         from_secret: k8s_token
+#       namespace: whp
+#     commands:
+#       - bash /bin/update.sh $${DRONE_COMMIT_MESSAGE##*;} $${DRONE_COMMIT_MESSAGE##*;} harbor.asoco.com.cn/whp/$${DRONE_COMMIT_MESSAGE##*;} $${DRONE_COMMIT_MESSAGE%%;*}
+#     when:
+#       branch:
+#         - master
+#       local: false
+
+  - name: dingtalk
+    image: lddsb/drone-dingtalk-message
+    settings:
+      token:
+        from_secret: dingding_token
+      type: markdown
+      message_color: true
+      sha_link: true
+    when:
+      status:
+        - failure
+      local: false
+
+volumes:
+  - name: cache
+    host:
+      path: /tmp/cache
+  - name: docker
+    host:
+      path: /var/run/docker.sock

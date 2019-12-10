@@ -1,0 +1,17 @@
+version: '3'
+services:
+  zzz:
+    image: "${REGISTER}/zzz:${TAG}"
+    # 配置文件可以直接通过环境变量的方式修改，比如下面的这个spring.profiles.active=dev
+    # 修改数据配置可以是spring.redis.host=192.168.1.1
+    environment:
+      - JAVA_OPTS=${JAVA_OPTS}
+      - spring.profiles.active=${ENV_OPTS}
+    privileged: true
+    restart: always
+    networks:
+      - zzz
+
+networks:
+  zzz:
+    driver: bridge
