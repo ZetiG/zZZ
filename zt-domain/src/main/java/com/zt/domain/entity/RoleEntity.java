@@ -3,6 +3,7 @@ package com.zt.domain.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.mybatis.plus.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -22,7 +23,7 @@ public class RoleEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-
+    @ApiModelProperty(value = "角色名")
     private String roleName;
 
 

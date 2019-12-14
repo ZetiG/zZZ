@@ -3,6 +3,7 @@ package com.zt.domain.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.mybatis.plus.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -22,11 +23,13 @@ public class UserEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-
+    @ApiModelProperty(value = "用户名")
     private String username;
 
+    @ApiModelProperty(value = "密码")
     private String password;
 
+    @ApiModelProperty(value = "盐")
     private String salt;
 
 }

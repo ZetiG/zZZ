@@ -1,0 +1,35 @@
+
+package $!{package.Mapper};
+
+import $!{package.Entity}.$!{entity};
+#set($voPackage=$package.Entity.replace("entity","vo"))
+import $!{voPackage}.$!{entity}VO;
+import $!{superMapperClassPackage};
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import java.util.List;
+
+/**
+ *
+ * 包名   $!{package.Mapper}
+ * 文件名:   $!{table.mapperName}
+ * 创建时间:  $!{date}
+ * 描述:      $!{table.comment} Mapper 接口
+ *
+ * @author $!{author}
+ */
+#if($!{kotlin})
+interface $!{table.mapperName} : $!{superMapperClass}<$!{entity}>
+#else
+public interface $!{table.mapperName} extends $!{superMapperClass}<$!{entity}> {
+
+	/**
+	 * 分页查询
+	 *
+	 * @param page
+	 * @param $!{table.entityPath}
+	 * @return
+	 */
+	IPage<$!{entity}VO> select$!{entity}Page(IPage page, $!{entity}VO $!{table.entityPath});
+
+}
+#end

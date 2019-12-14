@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.nio.channels.Pipe;
 import java.util.List;
 
 /**
@@ -42,8 +44,12 @@ import java.util.List;
 @Api(value = "/user", tags = "用户接口")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class UserController extends BaseController {
+
     @Resource
     private IUserService userService;
+
+    @Resource
+    private HttpServletRequest request;
 
 
     /**
@@ -103,6 +109,9 @@ public class UserController extends BaseController {
                 userForm.getPassword());
         try {
             subject.login(usernamePasswordToken);
+
+            request.getSession().setAttribute("userName", userForm.getUsername());
+
             log.info("登录成功:" + userForm.getUsername());
             return true;
         } catch (AuthenticationException exception) {

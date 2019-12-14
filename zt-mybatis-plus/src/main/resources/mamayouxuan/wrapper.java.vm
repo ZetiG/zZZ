@@ -1,0 +1,32 @@
+
+#set($wrapperPackage=$package.Entity.replace("entity","wrapper"))
+package $!{wrapperPackage};
+
+import lombok.AllArgsConstructor;
+import com.ziding.common.support.BaseEntityWrapper;
+import com.ziding.common.utils.BeanUtil;
+import $!{package.Entity}.$!{entity};
+#set($voPackage=$package.Entity.replace("entity","vo"))
+import $!{voPackage}.$!{entity}VO;
+
+/**
+ *
+ * 包名   $!{wrapperPackage}
+ * 文件名:   $!{entity}Wrapper
+ * 创建时间:  $!{date}
+ * 描述:      $!{table.comment}包装类,返回视图层所需的字段
+ *
+ * @author $!{author}
+ */
+@AllArgsConstructor
+public class $!{entity}Wrapper extends BaseEntityWrapper<$!{entity}, $!{entity}VO>  {
+
+
+
+	@Override
+	public $!{entity}VO entityVO($!{entity} $!{table.entityPath}) {
+		$!{entity}VO $!{table.entityPath}VO = BeanUtil.copy($!{table.entityPath}, $!{entity}VO.class);
+		return $!{table.entityPath}VO;
+	}
+
+}
