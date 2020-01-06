@@ -86,7 +86,7 @@ public class SwaggerProperties {
         /**
          * 联系人url
          **/
-        private String url = "";
+        private String url = "http://s98k.com";
 
         /**
          * 联系人email

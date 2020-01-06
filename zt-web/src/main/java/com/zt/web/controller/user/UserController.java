@@ -20,14 +20,10 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.nio.channels.Pipe;
 import java.util.List;
 
 /**
@@ -101,7 +97,7 @@ public class UserController extends BaseController {
      */
     @PostMapping("/login")
     @ApiOperation(value = "登录", notes = "传入userForm")
-    public boolean login(UserForm userForm) {
+    public boolean login(@RequestBody UserForm userForm) {
         Assert.notNull(userForm, "请求参数不能为空！");
 
         Subject subject = SecurityUtils.getSubject();
