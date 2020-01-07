@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Description: ${TODO}(用一句话描述该文件做什么)
+ * Description: shiro配置
  *
  * @Date 2019-11-10 16:29
  * @Author Zeti

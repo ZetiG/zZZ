@@ -36,11 +36,12 @@
         <swagger.version>2.9.2</swagger.version>
         <swagger.models.version>1.5.21</swagger.models.version>
         <swagger.bootstrapui.version>1.9.6</swagger.bootstrapui.version>
-        <fastjson.verson>1.2.47</fastjson.verson>
+        <fastjson.verson>1.2.62</fastjson.verson>
         <java.version>1.8</java.version>
         <jjwt.version>0.9.0</jjwt.version>
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
         <shiro.version>1.4.0</shiro.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
     </properties>
 
     <!---公共依赖-->
@@ -107,12 +108,6 @@
                 <artifactId>sqlite-jdbc</artifactId>
                 <version>${sqlite.jdbc.version}</version>
             </dependency>
-            <!--数据校验-->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${hibernate-validator.version}</version>
-            </dependency>
             <!--Lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -148,6 +143,13 @@
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
