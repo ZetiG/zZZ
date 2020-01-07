@@ -97,7 +97,7 @@ public class UserController extends BaseController {
      */
     @PostMapping("/login")
     @ApiOperation(value = "登录", notes = "传入userForm")
-    public boolean login(@RequestBody UserForm userForm) {
+    public boolean login(UserForm userForm) {
         Assert.notNull(userForm, "请求参数不能为空！");
 
         Subject subject = SecurityUtils.getSubject();
