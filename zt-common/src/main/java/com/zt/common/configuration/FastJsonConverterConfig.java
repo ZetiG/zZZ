@@ -24,8 +24,8 @@ public class FastJsonConverterConfig {
         fastJsonHttpMessageConverter.setDefaultCharset(Charset.defaultCharset());
         FastJsonConfig config = new FastJsonConfig();
         config.getSerializeConfig().put(Json.class, new SwaggerJsonSerializer());
-        return new HttpMessageConverters(fastJsonHttpMessageConverter);
-//        return new HttpMessageConverters();
+//        return new HttpMessageConverters(fastJsonHttpMessageConverter);
+        return new HttpMessageConverters();
     }
 
 }
