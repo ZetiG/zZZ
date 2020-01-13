@@ -3,6 +3,8 @@ package com.zt.web.controller.user;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mybatis.plus.base.BaseController;
+import com.zt.common.response.Result;
+import com.zt.common.response.ResultEnum;
 import com.zt.domain.dto.UserDTO;
 import com.zt.domain.entity.UserEntity;
 import com.zt.domain.vo.UserVO;
@@ -97,7 +99,7 @@ public class UserController extends BaseController {
      */
     @PostMapping("/login")
     @ApiOperation(value = "登录", notes = "传入userForm")
-    public boolean login(UserForm userForm) {
+    public Result login(UserForm userForm) {
         Assert.notNull(userForm, "请求参数不能为空！");
 
         Subject subject = SecurityUtils.getSubject();
@@ -109,9 +111,10 @@ public class UserController extends BaseController {
             request.getSession().setAttribute("userName", userForm.getUsername());
 
             log.info("登录成功:" + userForm.getUsername());
-            return true;
+            return Result.success(ResultEnum.SUCCESS);
         } catch (AuthenticationException exception) {
-            throw new IllegalArgumentException("账号密码错误！");
+            return Result.fail("账号密码错误！");
+//            throw new IllegalArgumentException("账号密码错误！");
         }
     }
 
