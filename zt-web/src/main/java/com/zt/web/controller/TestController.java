@@ -1,8 +1,12 @@
 package com.zt.web.controller;
 
-import com.zt.domain.entity.UserEntity;
+import com.zt.common.response.Result;
+import com.zt.common.response.ResultEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Description: (用一句话描述该文件做什么)
@@ -26,11 +30,11 @@ public class TestController {
         return "index.html";
     }
 
-    @PostMapping("/login")
-    public boolean login(@RequestBody UserEntity userEntity) {
-        log.info(userEntity.getUsername());
-        log.info(userEntity.getPassword());
-        return true;
+    @PostMapping("/upload")
+    public Result<Boolean> login(@RequestParam("urls") List<String> urls) {
+        String s = Arrays.toString(urls.toArray());
+        System.out.println(s);
+        return Result.success(ResultEnum.SUCCESS);
     }
 
     @PostMapping("/index")
