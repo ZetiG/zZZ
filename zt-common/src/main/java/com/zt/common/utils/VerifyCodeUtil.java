@@ -37,7 +37,7 @@ public class VerifyCodeUtil {
         for (int i = 0; i < 4; i++) {
             String s = randomChar() + "";      //随机生成字符，因为只有画字符串的方法，没有画字符的方法，所以需要将字符变成字符串再画
             stringBuilder.append(s);           //添加到StringBuilder里面
-            float x = i * 1.0F * width / 4;   //定义字符的x坐标
+            float x = i * 1.0F * width / 4;    //定义字符的x坐标
             g.setFont(randomFont());           //设置字体，随机
             g.setColor(randomColor());         //设置颜色，随机
             g.drawString(s, x, height - 5);
