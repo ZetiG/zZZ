@@ -33,7 +33,7 @@ public class TestController {
     @PostMapping("/upload")
     public Result<Boolean> login(@RequestParam("urls") List<String> urls) {
         String s = Arrays.toString(urls.toArray());
-        System.out.println(s);
+        log.info("请求入参：{}",s);
         return Result.success(ResultEnum.SUCCESS);
     }
 
