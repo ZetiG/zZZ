@@ -17,25 +17,32 @@ import java.util.Random;
 public class ImageUtil {
 
     // 图片的宽度。
-    private int width = 160;
+    private int width = 100;
     // 图片的高度。
-    private int height = 40;
+    private int height = 35;
     // 验证码字符个数
-    private int codeCount = 5;
+    private int codeCount = 4;
     // 验证码干扰线数
     private int lineCount = 150;
     // 验证码
     private String code = null;
+    //随机生成的字符
+    private char[] codeSequence = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P',
+            'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-    private char[] codeSequence = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-            'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
-            'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-
+    //图片缓冲区
     private BufferedImage bufferedImage;
 
-    private ImageUtil(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public ImageUtil() {
+        createCodeImage();
+    }
+
+    private ImageUtil(int codeCount, int lineCount) {
+        this.codeCount = codeCount;
+        this.lineCount = lineCount;
     }
 
     public ImageUtil(int width, int height, int codeCount, int lineCount) {

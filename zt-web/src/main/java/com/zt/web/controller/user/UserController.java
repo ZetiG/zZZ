@@ -5,9 +5,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mybatis.plus.base.BaseController;
 import com.zt.common.response.Result;
 import com.zt.common.response.ResultEnum;
-import com.zt.common.utils.ImageUtil;
-import com.zt.common.utils.VerifyCodeUtil;
-import com.zt.common.validatecode.ValidateCode;
 import com.zt.domain.dto.UserDTO;
 import com.zt.domain.entity.UserEntity;
 import com.zt.domain.vo.UserVO;
@@ -16,26 +13,20 @@ import com.zt.web.form.UserForm;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -50,7 +41,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Api(value = "/user", tags = "用户接口")
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class UserController extends BaseController {
 
     @Resource
@@ -141,55 +131,5 @@ public class UserController extends BaseController {
         }
     }
 
-    /**
-     * 生成图片验证码
-     */
-    @GetMapping(value = "/captcha")
-    public void getCaptchaCode(HttpServletResponse response) throws IOException {
-        // 设置响应的类型格式为图片格式
-        response.setContentType("image/jpeg");
-        // 禁止图像缓存
-        response.setHeader("Pragma", "no-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setDateHeader("Expires", 0);
-
-        ValidateCode vCode = new ValidateCode(100, 35, 4, 15);
-
-        String captcha = getCookie(request, "captcha");
-        // 绑定客户端和验证码，写cookie
-        if (StringUtils.isBlank(captcha)) {
-            captcha = String.valueOf(2);
-            response.setHeader("Set-Cookie", "captcha" + "=" + captcha + ";Path=/;HTTPOnly");
-        }
-        vCode.write(response.getOutputStream());
-    }
-
-    /**
-     * 生成图片验证码2
-     */
-    @GetMapping(value = "/captcha2")
-    public void getCaptchaCode2(HttpServletResponse response) throws IOException {
-        response.setContentType("image/jpeg");
-        //禁止图像缓存
-        response.setHeader("Pragma","no-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setDateHeader("Expires", 0);
-        HttpSession session = request.getSession();
-        ImageUtil imageUtil = new ImageUtil(120, 40, 5,30);
-        session.setAttribute("code", imageUtil.getCode());
-        imageUtil.write(response.getOutputStream());
-    }
-
-    private  String getCookie(HttpServletRequest request, String cookieName){
-        Cookie[] cookies = request.getCookies();
-        if(null == cookies || cookies.length == 0)
-            return null;
-        for(Cookie cookie : cookies){
-            if(cookieName.equals(cookie.getName())){
-                return cookie.getValue();
-            }
-        }
-        return null;
-    }
 
 }
