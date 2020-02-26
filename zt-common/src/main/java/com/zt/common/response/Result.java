@@ -60,7 +60,7 @@ public class Result<T> implements Serializable {
      * @param result Result
      * @return 是否成功
      */
-    public static boolean isSuccess(@Nullable Result<?> result) {
+    private static boolean isSuccess(@Nullable Result<?> result) {
         return Optional.ofNullable(result)
                 .map(x -> ObjectUtils.nullSafeEquals(ResultEnum.SUCCESS.code, x.code))
                 .orElse(Boolean.FALSE);
@@ -75,7 +75,6 @@ public class Result<T> implements Serializable {
     public static boolean isNotSuccess(@Nullable Result<?> result) {
         return !Result.isSuccess(result);
     }
-
 
     /**
      * 返回R
@@ -133,7 +132,6 @@ public class Result<T> implements Serializable {
         return new Result<>(ResultEnum.FAILURE, msg);
     }
 
-
     /**
      * 返回R
      *
@@ -169,11 +167,15 @@ public class Result<T> implements Serializable {
         return new Result<>(ResultEnum, msg);
     }
 
-
+    /**
+     * 查询无数据返回
+     *
+     * @param <T> 泛型
+     * @return Result
+     */
     public static <T> Result<T> noData() {
         return new Result<>(ResultEnum.NO_DATA);
     }
-
 
     /**
      * 返回R

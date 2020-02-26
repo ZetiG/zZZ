@@ -36,7 +36,7 @@ public class RoleResourceController extends BaseController {
      */
     @GetMapping("/page")
     @ApiOperation(value = "分页", notes = "传入roleResource")
-    public IPage<RoleResourceVO> page(Page page, RoleResourceVO roleResource) {
+    public IPage<RoleResourceVO> page(Page<RoleResourceVO> page, RoleResourceVO roleResource) {
         return roleResourceService.selectRoleResourcePage(page, roleResource);
     }
 

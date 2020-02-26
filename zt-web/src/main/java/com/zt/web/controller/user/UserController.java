@@ -55,7 +55,7 @@ public class UserController extends BaseController {
      */
     @GetMapping("/page")
     @ApiOperation(value = "分页", notes = "传入user")
-    public IPage<UserVO> page(Page page, UserVO user) {
+    public IPage<UserVO> page(Page<UserVO> page, UserVO user) {
         return userService.selectUserPage(page, user);
     }
 
@@ -97,7 +97,7 @@ public class UserController extends BaseController {
      */
     @PostMapping("/login")
     @ApiOperation(value = "登录", notes = "传入userForm")
-    public Result login(UserForm userForm) {
+    public boolean login(UserForm userForm) {
         Assert.notNull(userForm, "请求参数不能为空！");
 
         Subject subject = SecurityUtils.getSubject();
@@ -109,9 +109,11 @@ public class UserController extends BaseController {
             request.getSession().setAttribute("userName", userForm.getUsername());
 
             log.info("登录成功:" + userForm.getUsername());
-            return Result.success(ResultEnum.SUCCESS);
+//            return Result.success(ResultEnum.SUCCESS);
+            return true;
         } catch (AuthenticationException exception) {
-            return Result.fail("账号密码错误！");
+//            return Result.fail("账号密码错误！");
+            return false;
 //            throw new IllegalArgumentException("账号密码错误！");
         }
     }

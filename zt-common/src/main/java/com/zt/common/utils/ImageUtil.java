@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.util.Random;
 
 /**
- * Description: (用一句话描述该文件做什么)
+ * Description: 图片验证码生成
  *
  * @Date 2020/1/14 20:47
  * @Author Zeti

@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <groupId>com.zt.web</groupId>
     <artifactId>zt-web</artifactId>

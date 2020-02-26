@@ -36,7 +36,7 @@ public class UserRoleController extends BaseController {
      */
     @GetMapping("/page")
     @ApiOperation(value = "分页", notes = "传入userRole")
-    public IPage<UserRoleVO> page(Page page, UserRoleVO userRole) {
+    public IPage<UserRoleVO> page(Page<UserRoleVO> page, UserRoleVO userRole) {
         return userRoleService.selectUserRolePage(page, userRole);
     }
 

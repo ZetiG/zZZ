@@ -36,7 +36,7 @@ public class ResourceController extends BaseController {
      */
     @GetMapping("/page")
     @ApiOperation(value = "分页", notes = "传入resource")
-    public IPage<ResourceVO> page(Page page, ResourceVO resource) {
+    public IPage<ResourceVO> page(Page<ResourceVO> page, ResourceVO resource) {
         return resourceService.selectResourcePage(page, resource);
     }
 
