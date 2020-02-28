@@ -1,6 +1,5 @@
 package com.zt.common.swagger;
 
-import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import com.google.common.base.Predicate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -26,7 +25,7 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
-@EnableSwaggerBootstrapUI
+//@EnableSwaggerBootstrapUI
 //@Profile({"dev", "test"})
 @EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerConfiguration {

@@ -14,7 +14,7 @@
 
     <dependencies>
         <!--Swagger-->
-        <dependency>
+        <!--<dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
@@ -38,6 +38,11 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>${swagger.bootstrapui.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
