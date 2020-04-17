@@ -64,8 +64,8 @@ public class UserController extends BaseController {
      */
     @GetMapping("/list")
     @ApiOperation(value = "查询所有", notes = "无参数")
-    public List<UserEntity> selectList() {
-        return userService.list();
+    public Result<List<UserEntity>> selectList() {
+        return Result.Data(userService.list());
     }
 
     /**

@@ -43,11 +43,11 @@ public class CodeGenerator {
     /**
      * 需要去掉的表前缀
      */
-    private static String[] tablePrefix = {"z_"};
+    private static String[] tablePrefix = {""};
     /**
      * 需要生成的表名(两者只能取其一)
      */
-    private static String[] includeTables = {"z_user", "z_role", "z_resource", "z_user_role", "z_role_resource"};
+    private static String[] includeTables = {"shop_user"};
     /**
      * 需要排除的表名(两者只能取其一)
      */

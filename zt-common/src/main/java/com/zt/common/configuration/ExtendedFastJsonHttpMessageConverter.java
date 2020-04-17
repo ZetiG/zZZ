@@ -1,10 +1,12 @@
 package com.zt.common.configuration;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONPObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zt.common.response.Result;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.converter.HttpMessageNotWritableException;
@@ -30,7 +32,7 @@ public class ExtendedFastJsonHttpMessageConverter extends FastJsonHttpMessageCon
 
     private SerializerFeature[] features;
 
-    public ExtendedFastJsonHttpMessageConverter() {
+    ExtendedFastJsonHttpMessageConverter() {
         super();
         this.charset = UTF8;
         this.features = new SerializerFeature[]{SerializerFeature.DisableCircularReferenceDetect};
