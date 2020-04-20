@@ -5,6 +5,15 @@ server:
 spring:
   application:
     name: zt-web
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.13.22.217:8848
+        namespace: a329e8ca-5c6b-4183-a435-ea9a018da27e
+      config:
+        server-addr: 106.13.22.217:8848
+        namespace: a329e8ca-5c6b-4183-a435-ea9a018da27e
+        file-extension: yaml
   datasource:
     driver-class-name: org.sqlite.JDBC
     url: jdbc:sqlite::resource:db/zz.db
