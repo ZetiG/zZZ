@@ -43,6 +43,8 @@
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
         <shiro.version>1.4.0</shiro.version>
         <commons-lang3.version>3.9</commons-lang3.version>
+        <guava.version>29.0-jre</guava.version>
+
     </properties>
 
     <!---公共依赖-->
@@ -75,6 +77,12 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.verson}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
 
     </dependencies>
 
@@ -96,6 +104,17 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!-- Nacos -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${alibaba.cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${alibaba.cloud.version}</version>
             </dependency>
             <!--数据库-->
             <dependency>

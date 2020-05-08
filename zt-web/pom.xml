@@ -24,11 +24,6 @@
             <artifactId>zt-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--spring-cloud-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-        </dependency>
         <!-- Nacos -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

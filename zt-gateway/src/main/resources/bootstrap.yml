@@ -13,14 +13,3 @@ spring:
         server-addr: 106.13.22.217:8848
         namespace: a329e8ca-5c6b-4183-a435-ea9a018da27e
         file-extension: yaml
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: zt-web
-          uri: http://www.s98k.com
-          predicates:
-          - Path=/report/**
-
