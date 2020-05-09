@@ -16,14 +16,19 @@ spring:
     throw-exception-if-no-handler-found: true
   resources:
     add-mappings: false
+  freemarker:
+    prefer-file-system-access: false
   datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-    driver-class-name: org.sqlite.JDBC
+#    driver-class-name: org.sqlite.JDBC
+#    url: jdbc:sqlite::resource:db/zz.db
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+#    url:  jdbc:mysql://192.168.1.249:3306/mall_new5?useUnicode=true&characterEncoding=utf-8
+    url:  jdbc:p6spy:mysql://192.168.1.249:3306/mall_new5?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 1234567
     hikari:
       connection-test-query: SELECT 1 FROM DUAL
       connection-timeout: 30000
       maximum-pool-size: 5
       max-lifetime: 1800000
       minimum-idle: 1
-  freemarker:
-    prefer-file-system-access: false
