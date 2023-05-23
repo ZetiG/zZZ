@@ -32,7 +32,7 @@
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
         <spring.platform.version>Cairo-SR8</spring.platform.version>
         <mybatis.starter.version>2.0.0</mybatis.starter.version>
-        <sqlite.jdbc.version>3.8.11</sqlite.jdbc.version>
+        <sqlite.jdbc.version>3.41.2.2</sqlite.jdbc.version>
         <lombok.version>1.18.10</lombok.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger.models.version>1.5.21</swagger.models.version>
